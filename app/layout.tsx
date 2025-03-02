@@ -4,6 +4,8 @@ import "./globals.css";
 import { cn } from "@/utils/utils";
 import { AuthProvider } from "@/context/AuthContext";
 import { NatureProvider } from "@/context/NatureContext";
+import Header from "./components/header";
+import Footer from "./components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,10 +21,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja">
-      <body className={cn(inter.className, 'min-h-dvh')}>
+      <body className={cn(inter.className, 'min-h-dvh bg-gradient-to-b from-sky-300 via-green-200 to-yellow-200 w-screen min-h-screen')}>
         <AuthProvider>
           <NatureProvider>
+            <Header />  
               {children}
+            <Footer/>
           </NatureProvider>
         </AuthProvider>
       </body>
